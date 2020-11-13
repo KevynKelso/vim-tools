@@ -1,5 +1,7 @@
 import re
 
+from subprocess import Popen, STDOUT, PIPE
+
 from functions_common import execute_in_shell, print_output_communication
 
 

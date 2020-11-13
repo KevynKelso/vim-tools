@@ -1,8 +1,7 @@
 import re
 import subprocess
-import sys
 
-from os.path import exists, splitext, basename
+from os.path import exists, splitext
 from pathlib import Path
 
 from functions_common import execute_in_shell
