@@ -1,4 +1,3 @@
-import re
 import subprocess
 
 from os.path import exists, splitext

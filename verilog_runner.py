@@ -14,7 +14,7 @@ def verify_verilog_code(verilog_file):
         return False
 
     if not re.search(r'\$dumpfile', verilog_contents):
-        print('Missing $dumpfile(file_name.vcd)')
+        print('Missing $dumpfile("file_name.vcd")')
         return False
 
     if not re.search(r'\$dumpvars', verilog_contents):
@@ -23,8 +23,9 @@ def verify_verilog_code(verilog_file):
 
     return True
 
+
 def compile_verilog(vvp_file, verilog_file):
-    p = Popen(['iverilog', '-o', vvp_file, '-v', verilog_file], 
+    p = Popen(['iverilog', '-o', vvp_file, verilog_file], 
         stdout=PIPE, stdin=PIPE, stderr=PIPE)
     print_output_communication(p.communicate(), verilog_file)
 
@@ -34,3 +35,4 @@ def run_verilog_code(verilog_file):
         vvp_file = f'{verilog_file}vp'
         compile_verilog(vvp_file, verilog_file)
         execute_in_shell('vvp', vvp_file) 
+
