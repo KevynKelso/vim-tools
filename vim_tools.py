@@ -1,6 +1,8 @@
 import sys
 
 from os.path import basename
+
+from go_runner import run_go_code
 from java_runner import run_java_code
 from python_runner import run_python_code
 from verilog_runner import run_verilog_code
@@ -20,6 +22,10 @@ def run_code():
 
     if file_to_run.endswith('.v'):
         run_verilog_code(file_to_run)
+        return
+
+    if file_to_run.endswith('.go'):
+        run_go_code(file_to_run)
         return
 
     print('This file type is not supported')
