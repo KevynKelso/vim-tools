@@ -25,7 +25,8 @@ def verify_verilog_code(verilog_file):
 
 
 def compile_verilog(vvp_file, verilog_file):
-    p = Popen(['iverilog', '-o', vvp_file, verilog_file], 
+    lib_path = '~/Desktop/school/advanced-digital-design/OSU_Cell_Library'
+    p = Popen(['iverilog', '-y', lib_path, '-o', vvp_file, verilog_file], 
         stdout=PIPE, stdin=PIPE, stderr=PIPE)
     print_output_communication(p.communicate(), verilog_file)
 
