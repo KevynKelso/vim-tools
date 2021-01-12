@@ -26,8 +26,11 @@ def sub_class_name_instances(class_name_intstances, class_consts, file_contents)
 
     for class_inst, class_const in zip(class_name_intstances, class_consts):
         _, const_name_lower = get_const_names(class_const)
-        new_file_contents = re.sub(class_inst, 
-                f'className={{formatted{const_name_lower}}}',new_file_contents)
+        new_file_contents = re.sub(
+                                class_inst, 
+                                f'className={{formatted{const_name_lower}}}',
+                                new_file_contents
+                            )
 
     return new_file_contents
 
