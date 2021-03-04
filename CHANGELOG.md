@@ -1,6 +1,9 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Chore
+- **chglog:** Generate a changelog for testing
+
 ### Feat
 - **chglog:** add changelog functionality; refactoring of go_runner and tsx_formatter
 
