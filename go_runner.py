@@ -1,4 +1,4 @@
-from subprocess import Popen, STDOUT, PIPE
+from subprocess import Popen, PIPE
 
 from functions_common import print_output_communication
 

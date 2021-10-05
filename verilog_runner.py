@@ -1,8 +1,8 @@
 import re
 
-from subprocess import Popen, STDOUT, PIPE
+from subprocess import Popen, PIPE
 
-from functions_common import execute_in_shell, print_output_communication
+from functions_common import execute_and_print_in_shell, print_output_communication
 
 
 def verify_verilog_code(verilog_file):
@@ -26,7 +26,7 @@ def verify_verilog_code(verilog_file):
 
 def compile_verilog(vvp_file, verilog_file):
     lib_path = '~/Desktop/school/advanced-digital-design/OSU_Cell_Library'
-    p = Popen(['iverilog', '-y', lib_path, '-o', vvp_file, verilog_file], 
+    p = Popen(['iverilog', '-y', lib_path, '-o', vvp_file, verilog_file],
         stdout=PIPE, stdin=PIPE, stderr=PIPE)
     print_output_communication(p.communicate(), verilog_file)
 
@@ -35,5 +35,5 @@ def run_verilog_code(verilog_file):
     if verify_verilog_code(verilog_file):
         vvp_file = f'{verilog_file}vp'
         compile_verilog(vvp_file, verilog_file)
-        execute_in_shell('vvp', vvp_file) 
+        execute_and_print_in_shell('vvp', vvp_file)
 

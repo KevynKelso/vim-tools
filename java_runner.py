@@ -3,7 +3,7 @@ import subprocess
 from os.path import exists, splitext
 from pathlib import Path
 
-from functions_common import execute_in_shell
+from functions_common import execute_and_print_in_shell
 
 
 def read_input_file(input_file):
@@ -38,7 +38,7 @@ def get_input_from_file(input_file):
         return read_input_file(input_sequence_file)
 
     return ''
-    
+
 
 def compile_java(java_file):
     subprocess.run(['javac', java_file])
@@ -52,5 +52,5 @@ def run_java_code(java_file):
     for input_sequence in java_input:
         print('INPUT:\n', input_sequence)
         print('==================== PROGRAM OUTPUT ====================')
-        execute_in_shell('java', java_file, input_sequence)
+        execute_and_print_in_shell('java', java_file, input_sequence)
 

@@ -1,9 +1,9 @@
 import subprocess
 
-from os.path import exists, splitext
+from os.path import exists
 from pathlib import Path
 
-from functions_common import execute_in_shell
+from functions_common import execute_and_print_in_shell
 
 
 def read_input_file(input_file):
@@ -38,7 +38,7 @@ def get_input_from_file(input_file):
         return read_input_file(input_sequence_file)
 
     return ''
-    
+
 
 def compile_c_sharp():
     subprocess.run(['mcs', '-out:run.exe', '*.cs'])
@@ -52,5 +52,5 @@ def run_c_sharp_code(c_sharp_file):
     for input_sequence in c_sharp_input:
         print('INPUT:\n', input_sequence)
         print('==================== PROGRAM OUTPUT ====================')
-        execute_in_shell('mono', 'run.exe')
+        execute_and_print_in_shell('mono', 'run.exe')
 
